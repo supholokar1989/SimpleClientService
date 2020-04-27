@@ -39,7 +39,8 @@ namespace ClientService.API
             var container = new ContainerBuilder();
             container.Populate(services);
 
-            container.RegisterModule(new ApplicationModule(Configuration.GetConnectionString("ClientConnex")));
+            container.RegisterModule(new ApplicationModule(Configuration.GetConnectionString("ClientConnex"),
+                Configuration.GetValue<string>("CacheConnectionStrings:ClientCacheConnex")));
 
             return new AutofacServiceProvider(container.Build());
         }

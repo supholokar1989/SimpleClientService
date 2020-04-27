@@ -1,23 +1,35 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
+using Newtonsoft.Json;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+
 
 namespace ClientService.Data.Queries
 {
     public class ClientQueries : IClientQueries
     {
         private string _connectionString = string.Empty;
+        private string _cacheConnString = string.Empty;
 
-        public ClientQueries(string constr)
+        public ClientQueries(string constr, string cachContStr)
         {
             _connectionString = !string.IsNullOrWhiteSpace(constr) ? constr : throw new ArgumentNullException(nameof(constr));
+            _cacheConnString = !string.IsNullOrWhiteSpace(constr) ? cachContStr : throw new ArgumentNullException(nameof(cachContStr));
         }
         public async Task<ClientFacility> GetClientFacilityAndModules(int clientId, string facilityCode)
         {
+            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(_cacheConnString);
+            IDatabase db = redis.GetDatabase();
+            var var = db.StringGet("ClientFacilityModle" + clientId + facilityCode);
+            if (!var.IsNull)
+            {
+                return JsonConvert.DeserializeObject<ClientFacility>(var);
+            }
+
             using (var connection = new SqlConnection(_connectionString))
             {
                 var query = @"SELECT ClientId, ClientName, FacilityId, FacilityCode, FacilityName FROM vw_ClientFacility WHERE ClientId = @clientId AND Facilitycode = @facilityCode;
@@ -33,6 +45,8 @@ namespace ClientService.Data.Queries
                     if (clientFacility == null)
                         throw new KeyNotFoundException();
                     clientFacility.modules = results.Read<Module>().ToList();
+
+                    db.StringSet("ClientFacilityModle" + clientId + facilityCode, JsonConvert.SerializeObject(clientFacility), new TimeSpan(24,0,0));
 
                     return clientFacility;
                 }

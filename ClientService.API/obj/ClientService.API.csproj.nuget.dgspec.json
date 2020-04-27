@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.API\\ClientService.API.csproj": {}
+    "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.API\\ClientService.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.API\\ClientService.API.csproj": {
+    "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.API\\ClientService.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.API\\ClientService.API.csproj",
+        "projectUniqueName": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.API\\ClientService.API.csproj",
         "projectName": "ClientService.API",
-        "projectPath": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.API\\ClientService.API.csproj",
-        "packagesPath": "C:\\Users\\dreck.PEL-LP-HQ301\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.API\\obj\\",
+        "projectPath": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.API\\ClientService.API.csproj",
+        "packagesPath": "C:\\Users\\dreck\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\dreck.PEL-LP-HQ301\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dreck\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.Data\\ClientService.Data.csproj": {
-                "projectPath": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.Data\\ClientService.Data.csproj"
+              "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.Data\\ClientService.Data.csproj": {
+                "projectPath": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.Data\\ClientService.Data.csproj"
               }
             }
           }
@@ -122,20 +122,20 @@
         }
       }
     },
-    "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.Data\\ClientService.Data.csproj": {
+    "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.Data\\ClientService.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.Data\\ClientService.Data.csproj",
+        "projectUniqueName": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.Data\\ClientService.Data.csproj",
         "projectName": "ClientService.Data",
-        "projectPath": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.Data\\ClientService.Data.csproj",
-        "packagesPath": "C:\\Users\\dreck.PEL-LP-HQ301\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\ClientService.API\\ClientService.Data\\obj\\",
+        "projectPath": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.Data\\ClientService.Data.csproj",
+        "packagesPath": "C:\\Users\\dreck\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dreck\\source\\repos\\SimpleClientService\\SimpleClientService\\ClientService.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\dreck.PEL-LP-HQ301\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dreck\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
         ],
@@ -168,6 +168,10 @@
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[1.1.2, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.1.30, )"
             }
           },
           "imports": [
