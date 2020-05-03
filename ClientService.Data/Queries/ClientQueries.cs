@@ -20,7 +20,7 @@ namespace ClientService.Data.Queries
             _connectionString = !string.IsNullOrWhiteSpace(constr) ? constr : throw new ArgumentNullException(nameof(constr));
             _cacheConnString = !string.IsNullOrWhiteSpace(constr) ? cachContStr : throw new ArgumentNullException(nameof(cachContStr));
         }
-        public async Task<ClientFacility> GetClientFacilityAndModules(int clientId, string facilityCode)
+        public async Task<ClientFacility> GetClientFacilityAndModules(Int64 clientId, string facilityCode)
         {
             ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(_cacheConnString);
             IDatabase db = redis.GetDatabase();

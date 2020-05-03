@@ -8,7 +8,6 @@ C:\Users\dreck\source\repos\SimpleClientService\ClientService.API\ClientService.
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\bin\Debug\netcoreapp3.1\ClientService.Data.deps.json
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\bin\Debug\netcoreapp3.1\ClientService.Data.dll
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\bin\Debug\netcoreapp3.1\ClientService.Data.pdb
-C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.csprojAssemblyReference.cache
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.AssemblyInfoInputs.cache
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.AssemblyInfo.cs
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.dll

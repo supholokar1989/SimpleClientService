@@ -6,9 +6,9 @@ namespace ClientService.Data.Queries
 {
     public class ClientFacility
     {
-        public int ClientId { get; set; }
+        public Int64 ClientId { get; set; }
         public string ClientName { get; set; }
-        public int FacilityId { get; set; }
+        public Int64 FacilityId { get; set; }
         public string FacilityCode { get; set; }
         public string FacilityName { get; set; }
         
@@ -17,7 +17,7 @@ namespace ClientService.Data.Queries
 
     public class Module
     {
-        public int FacilityId { get; set; }
+        public Int64 FacilityId { get; set; }
         public string ModuleCode { get; set; }
         public string ModuleDescription { get; set; }
     }

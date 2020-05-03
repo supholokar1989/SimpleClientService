@@ -6,6 +6,6 @@ namespace ClientService.Data.Queries
 {
     public interface IClientQueries
     {
-        Task<ClientFacility> GetClientFacilityAndModules(int clientId, string facilityCode);
+        Task<ClientFacility> GetClientFacilityAndModules(Int64 clientId, string facilityCode);
     }
 }
