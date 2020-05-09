@@ -44,5 +44,33 @@ namespace ClientService.API.Grpc
             return null;
         }
 
+        public override async Task<ModulesResponse> FindModulesByClientIdAndFacilityId(ModuleFacilityIdRequest request, ServerCallContext context)
+        {
+            ClientFacility clientFacility = await _clientQueries.GetClientFacilityAndModulesByFacilityId(request.ClientId, request.FacilityId);
+            if (clientFacility != null)
+            {
+                List<Modules> moduleList = new List<Modules>();
+                foreach (Module m in clientFacility.modules)
+                {
+                    moduleList.Add(new Modules { FacilityId = m.FacilityId, ModuleCode = m.ModuleCode, ModuleDescription = m.ModuleDescription });
+                }
+
+                ModulesResponse response = new ModulesResponse
+                {
+                    ClientId = clientFacility.ClientId,
+                    ClientName = clientFacility.ClientName,
+                    FacilityId = clientFacility.FacilityId,
+                    FacilityCode = clientFacility.FacilityCode,
+                    FacilityName = clientFacility.FacilityName,
+                    Data = { moduleList }
+                };
+
+                return response;
+            }
+
+            context.Status = new Status(StatusCode.NotFound, $"Client with id {request.ClientId} and Facility with code {request.FacilityId} does not exist");
+            return null;
+        }
+
     }
 }

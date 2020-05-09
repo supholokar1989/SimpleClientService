@@ -14,12 +14,20 @@ namespace ClientService.API.Grpc {
 
     static readonly grpc::Marshaller<global::ClientService.API.Grpc.ModulesRequest> __Marshaller_ClientApi_ModulesRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ClientService.API.Grpc.ModulesRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::ClientService.API.Grpc.ModulesResponse> __Marshaller_ClientApi_ModulesResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ClientService.API.Grpc.ModulesResponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::ClientService.API.Grpc.ModuleFacilityIdRequest> __Marshaller_ClientApi_ModuleFacilityIdRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::ClientService.API.Grpc.ModuleFacilityIdRequest.Parser.ParseFrom);
 
     static readonly grpc::Method<global::ClientService.API.Grpc.ModulesRequest, global::ClientService.API.Grpc.ModulesResponse> __Method_FindModulesByClientIdAndFacilityCode = new grpc::Method<global::ClientService.API.Grpc.ModulesRequest, global::ClientService.API.Grpc.ModulesResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "FindModulesByClientIdAndFacilityCode",
         __Marshaller_ClientApi_ModulesRequest,
+        __Marshaller_ClientApi_ModulesResponse);
+
+    static readonly grpc::Method<global::ClientService.API.Grpc.ModuleFacilityIdRequest, global::ClientService.API.Grpc.ModulesResponse> __Method_FindModulesByClientIdAndFacilityId = new grpc::Method<global::ClientService.API.Grpc.ModuleFacilityIdRequest, global::ClientService.API.Grpc.ModulesResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "FindModulesByClientIdAndFacilityId",
+        __Marshaller_ClientApi_ModuleFacilityIdRequest,
         __Marshaller_ClientApi_ModulesResponse);
 
     /// <summary>Service descriptor</summary>
@@ -37,6 +45,11 @@ namespace ClientService.API.Grpc {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::ClientService.API.Grpc.ModulesResponse> FindModulesByClientIdAndFacilityId(global::ClientService.API.Grpc.ModuleFacilityIdRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -44,7 +57,8 @@ namespace ClientService.API.Grpc {
     public static grpc::ServerServiceDefinition BindService(ClientApiRetrievalBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_FindModulesByClientIdAndFacilityCode, serviceImpl.FindModulesByClientIdAndFacilityCode).Build();
+          .AddMethod(__Method_FindModulesByClientIdAndFacilityCode, serviceImpl.FindModulesByClientIdAndFacilityCode)
+          .AddMethod(__Method_FindModulesByClientIdAndFacilityId, serviceImpl.FindModulesByClientIdAndFacilityId).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -54,6 +68,7 @@ namespace ClientService.API.Grpc {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ClientApiRetrievalBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_FindModulesByClientIdAndFacilityCode, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ClientService.API.Grpc.ModulesRequest, global::ClientService.API.Grpc.ModulesResponse>(serviceImpl.FindModulesByClientIdAndFacilityCode));
+      serviceBinder.AddMethod(__Method_FindModulesByClientIdAndFacilityId, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::ClientService.API.Grpc.ModuleFacilityIdRequest, global::ClientService.API.Grpc.ModulesResponse>(serviceImpl.FindModulesByClientIdAndFacilityId));
     }
 
   }

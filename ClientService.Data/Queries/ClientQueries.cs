@@ -24,7 +24,7 @@ namespace ClientService.Data.Queries
         {
             ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(_cacheConnString);
             IDatabase db = redis.GetDatabase();
-            var var = db.StringGet("ClientFacilityModle" + clientId + facilityCode);
+            var var = db.StringGet("ClientFacilityModule" + clientId + facilityCode);
             if (!var.IsNull)
             {
                 return JsonConvert.DeserializeObject<ClientFacility>(var);
@@ -40,7 +40,7 @@ namespace ClientService.Data.Queries
                         WHERE f.ClientId = @clientId AND f.FacilityCode = @facilityCode";
                 connection.Open();
                 try { 
-                    var results = connection.QueryMultiple(query, new { @clientId = clientId, facilityCode = facilityCode });
+                    var results = connection.QueryMultiple(query, new { @clientId = clientId, @facilityCode = facilityCode });
                     var clientFacility = results.ReadSingle<ClientFacility>();
                     if (clientFacility == null)
                         throw new KeyNotFoundException();
@@ -56,6 +56,46 @@ namespace ClientService.Data.Queries
                 }
                 return null;
                 
+            }
+        }
+
+        public async Task<ClientFacility> GetClientFacilityAndModulesByFacilityId(Int64 clientId, Int64 facilityId)
+        {
+            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(_cacheConnString);
+            IDatabase db = redis.GetDatabase();
+            var var = db.StringGet("ClientFacilityModule" + clientId + facilityId);
+            if (!var.IsNull)
+            {
+                return JsonConvert.DeserializeObject<ClientFacility>(var);
+            }
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var query = @"SELECT ClientId, ClientName, FacilityId, FacilityCode, FacilityName FROM vw_ClientFacility WHERE ClientId = @clientId AND Facilitycode = @facilityCode;
+                    select f.FacilityId, m.ModuleCode, m.[Description] as 'ModuleDescription'
+                        FROM [dbo].[Facility] f
+                        INNER JOIN [dbo].[FacilityModule] fm with (NOLOCK) ON f.facilityId = fm.facilityId
+                        INNER JOIN [dbo].[Module] m with (NOLOCK) ON m.moduleId = fm.moduleid
+                        WHERE f.ClientId = @clientId AND f.FacilityId = @facilityId";
+                connection.Open();
+                try
+                {
+                    var results = connection.QueryMultiple(query, new { @clientId = clientId, @facilityId = facilityId });
+                    var clientFacility = results.ReadSingle<ClientFacility>();
+                    if (clientFacility == null)
+                        throw new KeyNotFoundException();
+                    clientFacility.modules = results.Read<Module>().ToList();
+
+                    db.StringSet("ClientFacilityModle" + clientId + facilityId, JsonConvert.SerializeObject(clientFacility), new TimeSpan(24, 0, 0));
+
+                    return clientFacility;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: " + e);
+                }
+                return null;
+
             }
         }
     }

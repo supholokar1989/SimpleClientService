@@ -12,3 +12,4 @@ C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientServic
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.AssemblyInfo.cs
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.dll
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.pdb
+C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.csprojAssemblyReference.cache
