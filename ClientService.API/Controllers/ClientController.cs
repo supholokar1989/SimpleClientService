@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClientService.Data.Queries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace ClientService.API.Controllers
 {
@@ -11,6 +13,14 @@ namespace ClientService.API.Controllers
     [ApiController]
     public class ClientController : ControllerBase
     {
+        private readonly IClientQueries _clientQueries;
+        private readonly ILogger<ClientController> _logger;
+
+        public ClientController(IClientQueries clientQueries, ILogger<ClientController> logger)
+        {
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _clientQueries = clientQueries ?? throw new ArgumentNullException(nameof(clientQueries));
+        }
         // GET: api/Client
         [HttpGet]
         public IEnumerable<string> Get()
@@ -20,9 +30,11 @@ namespace ClientService.API.Controllers
 
         // GET: api/Client/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public async Task<ActionResult<IEnumerable<Facility>>> GetFacilityById(string id)
         {
-            return "value";
+            Int64 clientId = Convert.ToInt64(id);
+            var result = await _clientQueries.GetFacilityByClientId(clientId);
+            return new JsonResult(result);
         }
 
         // POST: api/Client

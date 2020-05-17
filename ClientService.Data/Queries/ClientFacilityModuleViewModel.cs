@@ -21,4 +21,11 @@ namespace ClientService.Data.Queries
         public string ModuleCode { get; set; }
         public string ModuleDescription { get; set; }
     }
+
+    public class Facility
+    {
+        public Int64 FacilityId { get; set; }
+        public string FacilityCode { get; set; }
+        public string FacilityName { get; set; }
+    }
 }

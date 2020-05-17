@@ -13,3 +13,12 @@ C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientServic
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.dll
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.pdb
 C:\Users\dreck\source\repos\SimpleClientService\SimpleClientService\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.csprojAssemblyReference.cache
+D:\PelitasPOC\SimpleClientService-master\ClientService.Data\bin\Debug\netcoreapp3.1\ClientService.Data.deps.json
+D:\PelitasPOC\SimpleClientService-master\ClientService.Data\bin\Debug\netcoreapp3.1\ClientService.Data.dll
+D:\PelitasPOC\SimpleClientService-master\ClientService.Data\bin\Debug\netcoreapp3.1\ClientService.Data.pdb
+D:\PelitasPOC\SimpleClientService-master\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.csprojAssemblyReference.cache
+D:\PelitasPOC\SimpleClientService-master\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.csproj.CoreCompileInputs.cache
+D:\PelitasPOC\SimpleClientService-master\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.AssemblyInfoInputs.cache
+D:\PelitasPOC\SimpleClientService-master\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.AssemblyInfo.cs
+D:\PelitasPOC\SimpleClientService-master\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.dll
+D:\PelitasPOC\SimpleClientService-master\ClientService.Data\obj\Debug\netcoreapp3.1\ClientService.Data.pdb

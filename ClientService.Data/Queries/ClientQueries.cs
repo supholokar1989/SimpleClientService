@@ -98,5 +98,24 @@ namespace ClientService.Data.Queries
 
             }
         }
+
+        public async Task<IEnumerable<Facility>> GetFacilityByClientId(long clientId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var result = await connection.QueryAsync<Facility>(
+                   @"SELECT FacilityId, FacilityCode,FacilityName
+                     FROM Facility where ClientID = @clientId"
+                        , new { clientId }
+                    );
+
+                if (result.AsList().Count == 0)
+                    throw new KeyNotFoundException();
+
+                return result;
+            }
+        }
     }
 }
